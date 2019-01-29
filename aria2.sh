@@ -14,7 +14,7 @@ DEST=$BASE$PREFIX
 LDFLAGS="-L$DEST/lib -Wl,--gc-sections"
 CPPFLAGS="-I$DEST/include"
 CFLAGS="-mtune=mips32 -mips32 -O3 -ffunction-sections -fdata-sections"
-SQ_CFLAGS="-mtune=mips32 -mips32 -O3 -ffunction-sections -fdata-sections -L /home/jason/Download/OpenWrt-Toolchain-ramips-for-mipsel_24kec+dsp-gcc-4.8-linaro_uClibc-0.9.33.2/toolchain-mipsel_24kec+dsp_gcc-4.8-linaro_uClibc-0.9.33.2/bin/ -lpthread"
+SQ_CFLAGS="-mtune=mips32 -mips32 -O3 -ffunction-sections -fdata-sections -L /home/jason/Download/OpenWrt-Toolchain-ramips-for-mipsel_24kec+dsp-gcc-4.8-linaro_uClibc-0.9.33.2/toolchain-mipsel_24kec+dsp_gcc-4.8-linaro_uClibc-0.9.33.2/bin/ -lpthread -ldl"
 CXXFLAGS=$CFLAGS
 CONFIGURE="./configure --prefix=$PREFIX --host=mipsel-openwrt-linux"
 MAKE="make -j`nproc`"
