@@ -17,14 +17,14 @@ CFLAGS="-mtune=mips32 -mips32 -O3 -ffunction-sections -fdata-sections -lpthread"
 CXXFLAGS=$CFLAGS
 CONFIGURE="./configure --prefix=$PREFIX --host=mipsel-openwrt-linux"
 MAKE="make -j`nproc`"
-#mkdir $SRC
+mkdir $SRC
 
 ######## ####################################################################
 # ZLIB # ####################################################################
 ######## ####################################################################
 
-#mkdir $SRC/zlib && cd $SRC/zlib
-#$WGET http://zlib.net/zlib-1.2.11.tar.gz
+mkdir $SRC/zlib && cd $SRC/zlib
+$WGET http://zlib.net/zlib-1.2.11.tar.gz
 tar zxvf zlib-1.2.11.tar.gz
 cd zlib-1.2.11
 
@@ -43,8 +43,8 @@ make install DESTDIR=$BASE
 # OPENSSL # #################################################################
 ########### #################################################################
 
-#mkdir -p $SRC/openssl && cd $SRC/openssl
-#$WGET https://www.openssl.org/source/openssl-1.0.2g.tar.gz
+mkdir -p $SRC/openssl && cd $SRC/openssl
+$WGET https://www.openssl.org/source/openssl-1.0.2g.tar.gz
 tar zxvf openssl-1.0.2g.tar.gz
 cd openssl-1.0.2g
 
@@ -62,9 +62,9 @@ make CC=mipsel-openwrt-linux-gcc install INSTALLTOP=$DEST OPENSSLDIR=$DEST/ssl
 # SQLITE # # v3.12.1 ########################################################
 ########## ##################################################################
 
-#mkdir $SRC/sqlite && cd $SRC/sqlite
-#$WGET https://www.sqlite.org/cgi/src/tarball/fe7d3b75/SQLite-fe7d3b75.tar.gz --no-check-certificate
-#tar zxvf SQLite-fe7d3b75.tar.gz
+mkdir $SRC/sqlite && cd $SRC/sqlite
+$WGET https://www.sqlite.org/cgi/src/tarball/fe7d3b75/SQLite-fe7d3b75.tar.gz --no-check-certificate
+tar zxvf SQLite-fe7d3b75.tar.gz
 cd SQLite-fe7d3b75
 
 LDFLAGS=$LDFLAGS \
