@@ -128,7 +128,7 @@ LDFLAGS=$LDFLAGS \
 	CPPFLAGS=$CPPFLAGS \
 	CFLAGS=$CFLAGS \
 	CXXFLAGS=$CXXFLAGS \
-	$CONFIGURE
+	./configure --prefix=$PREFIX --host=mipsel-openwrt-linux --with-libssl-prefix=/opt/lib/
 
 $MAKE LIBS="-lz -lssl -lcrypto"
 make install DESTDIR=$BASE
