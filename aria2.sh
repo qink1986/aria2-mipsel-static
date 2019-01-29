@@ -64,9 +64,9 @@ make CC=mipsel-openwrt-linux-gcc install INSTALLTOP=$DEST OPENSSLDIR=$DEST/ssl
 ########## ##################################################################
 
 mkdir $SRC/sqlite && cd $SRC/sqlite
-$WGET https://www.sqlite.org/cgi/src/tarball/fe7d3b75/SQLite-fe7d3b75.tar.gz --no-check-certificate
-tar zxvf SQLite-fe7d3b75.tar.gz
-cd SQLite-fe7d3b75
+$WGET https://www.sqlite.org/cgi/src/tarball/e4ab094f/SQLite-e4ab094f.tar.gz --no-check-certificate
+tar zxvf SQLite-e4ab094f.tar.gz
+cd SQLite-e4ab094f
 
 LDFLAGS=$LDFLAGS \
 	CPPFLAGS=$CPPFLAGS \
