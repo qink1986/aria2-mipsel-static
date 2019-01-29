@@ -13,7 +13,8 @@ WGET="tsocks wget --prefer-family=IPv4"
 DEST=$BASE$PREFIX
 LDFLAGS="-L$DEST/lib -Wl,--gc-sections"
 CPPFLAGS="-I$DEST/include"
-CFLAGS="-mtune=mips32 -mips32 -O3 -ffunction-sections -fdata-sections"	
+CFLAGS="-mtune=mips32 -mips32 -O3 -ffunction-sections -fdata-sections"
+SQ_CFLAGS="-mtune=mips32 -mips32 -O3 -ffunction-sections -fdata-sections -lpthread"
 CXXFLAGS=$CFLAGS
 CONFIGURE="./configure --prefix=$PREFIX --host=mipsel-openwrt-linux"
 MAKE="make -j`nproc`"
@@ -69,7 +70,7 @@ cd SQLite-fe7d3b75
 
 LDFLAGS=$LDFLAGS \
 	CPPFLAGS=$CPPFLAGS \
-	CFLAGS=-mtune=mips32 -mips32 -O3 -ffunction-sections -fdata-sections -lpthread \
+	CFLAGS=$SQ_CFLAGS \
 	CXXFLAGS=$CXXFLAGS \
 	$CONFIGURE
 
