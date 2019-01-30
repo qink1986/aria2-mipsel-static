@@ -3,7 +3,7 @@
 set -e
 set -x
 
-# mkdir ~/aria2 && cd ~/aria2
+mkdir ~/aria2 && cd ~/aria2
 
 PREFIX=/opt
 
@@ -18,15 +18,22 @@ SQ_CFLAGS="-mtune=mips32 -mips32 -O3 -ffunction-sections -fdata-sections -lpthre
 CXXFLAGS=$CFLAGS
 CONFIGURE="./configure --prefix=$PREFIX --host=mipsel-openwrt-linux"
 MAKE="make -j`nproc`"
-TOOLCHAINE_DIR="$BASE/OpenWrt-Toolchain-ramips-for-mipsel_24kec+dsp-gcc-4.8-linaro_uClibc-0.9.33.2/toolchain-mipsel_24kec+dsp_gcc-4.8-linaro_uClibc-0.9.33.2"
 
-export PATH=$PATH:$TOOLCHAINE_DIR/bin
 mkdir $SRC
 
+#############
+# TOOLCHAIN #
+#############
 
-######## #
-# ZLIB # #
-######## #
+$WGET http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/OpenWrt-Toolchain-ramips-for-mipsel_24kec+dsp-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
+tar jxvf OpenWrt-Toolchain-ramips-for-mipsel_24kec+dsp-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2
+
+TOOLCHAINE_DIR="$BASE/OpenWrt-Toolchain-ramips-for-mipsel_24kec+dsp-gcc-4.8-linaro_uClibc-0.9.33.2/toolchain-mipsel_24kec+dsp_gcc-4.8-linaro_uClibc-0.9.33.2"
+export PATH=$PATH:$TOOLCHAINE_DIR/bin
+
+########
+# ZLIB #
+########
 
 mkdir $SRC/zlib && cd $SRC/zlib
 $WGET http://zlib.net/zlib-1.2.11.tar.gz
